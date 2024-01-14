@@ -3,5 +3,6 @@
 <br>
 
 ## 사용자 요구사항 명세서
-![Uploading image.png…]()
+![image](https://github.com/DevTube-project/DevTube/assets/126961013/af2d6957-4879-446c-98e5-fb6d831b5b2f)
+
 
