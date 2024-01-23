@@ -10,12 +10,28 @@ import java.io.IOException;
 public class Stock {
     public static void main(String[] args) throws IOException {
         String url = "https://www.youtube.com/@codingapple/playlists";
-        Document doc = Jsoup.connect(java.net.URLEncoder.encode(url,"utf-8")).header("User-Agent" , "Mozilla/5.0").get();
+
+        // UTF-8로 파싱
+        Document doc = Jsoup.connect(url).get();
+
+        // 동영상 목록의 각 항목을 선택하는 선택자
+        Elements videoDetailsElements = doc.select(".video-details");
+
+        // 각 동영상의 제목 출력
+        for (Element videoDetailsElement : videoDetailsElements) {
+            Element titleElement = videoDetailsElement.selectFirst(".video-title");
+            System.out.println("Title: " + titleElement.text());
+        }
+
+        // og:title 속성 값 가져오기
+        Element metaTag = doc.select("meta[property=og:title]").first();
+        if (metaTag != null) {
+            String ogTitle = metaTag.attr("content");
+            System.out.println("og:title: " + ogTitle);
+        } else {
+            System.out.println("og:title not found.");
+        }
 
         System.out.println(doc);
-        Elements e1=doc.getElementsByAttributeValue("class","yt-simple-endpoint style-scope yt-formatted-string");
-        Element e2 = doc.getElementById("details");
-        System.out.println(e2);
-        System.out.println(e1.text());
     }
 }
