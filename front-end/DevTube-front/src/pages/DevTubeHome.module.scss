@@ -1,0 +1,11 @@
+/* DevTubeHome.module.scss */
+.pageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cardWrapper {
+  max-width: calc(25% - 16px);
+  flex: 1;
+}
