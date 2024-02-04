@@ -1,9 +1,6 @@
 package com.hongik_university.toy_project.Devtube.domain;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,9 +13,20 @@ public class Lecture {
     private Long lectureId;
     String title;
     String url;
-    //Field field;
-    String youtubeName;
-    Integer views;
-    String Image;
+    @Enumerated(EnumType.STRING)
+    BigField bigField;
+    @Enumerated(EnumType.STRING)
+    SmallField smallField;
+    String channelTitle;
+    String imageUrl;
+    @Builder
+    public Lecture(String title,BigField bigField,SmallField smallField,String url,String channelTitle,String imageUrl){
+        this.bigField = bigField;
+        this.smallField = smallField;
+        this.title = title;
+        this.channelTitle = channelTitle;
+        this.url = url;
+        this.imageUrl = imageUrl;
+    }
 
 }
