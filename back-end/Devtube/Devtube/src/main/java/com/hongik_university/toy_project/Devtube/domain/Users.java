@@ -3,6 +3,10 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -18,12 +22,19 @@ public class Users {
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @Enumerated(EnumType.STRING)
-    BigField bigField;
+    private BigField bigField;
     @Enumerated(EnumType.STRING)
-    SmallField smallField;
+    private SmallField smallField;
+    @OneToMany(mappedBy = "users")
+    private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "users")
+    private List<Bookmark> bookmarks = new ArrayList<>();
+    @OneToMany(mappedBy = "users")
+    private List<StudyParticipants> participants = new ArrayList<>();
+
     @Builder
-    public Users(String userId,String password,String name,String nickname,Integer age
-    ,Gender gender,BigField bigField, SmallField smallField){
+    public Users(String userId, String password, String name, String nickname, Integer age
+    , Gender gender, BigField bigField, SmallField smallField){
         this.userId = userId;
         this.password = password;
         this.name = name;
