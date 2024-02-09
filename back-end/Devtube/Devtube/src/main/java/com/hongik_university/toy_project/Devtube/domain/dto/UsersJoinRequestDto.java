@@ -1,5 +1,6 @@
 package com.hongik_university.toy_project.Devtube.domain.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
