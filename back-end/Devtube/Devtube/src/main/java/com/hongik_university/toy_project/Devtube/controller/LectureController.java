@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/lecture")
+@RequestMapping("/api/v1/lecture")
 @RequiredArgsConstructor
 public class LectureController {
     private final LectureService lectureService;
     @PostConstruct
     public void init(){
         lectureService.create();}
-
+    
 }
