@@ -4,6 +4,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -19,6 +22,12 @@ public class Lecture {
     SmallField smallField;
     String channelTitle;
     String imageUrl;
+    @OneToMany(mappedBy = "lecture")
+    List<Bookmark> bookmarks = new ArrayList<>();
+    @OneToMany(mappedBy = "lecture")
+    List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "lecture")
+    List<StudyGroup> studyGroups = new ArrayList<>();
     @Builder
     public Lecture(String title,BigField bigField,SmallField smallField,String url,String channelTitle,String imageUrl){
         this.bigField = bigField;
