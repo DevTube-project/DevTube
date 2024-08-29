@@ -1,12 +1,13 @@
 package com.hongik_university.toy_project.Devtube.repository;
 
-import com.hongik_university.toy_project.Devtube.domain.Users;
+import com.hongik_university.toy_project.Devtube.domain.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UsersRepository extends JpaRepository<Users,Long> {
-    Optional<Users> findByUserId(String userId);
+public interface UsersRepository extends JpaRepository<User,Long> {
+    Optional<User> findByUserId(String userId);
 
-    Optional<Users> findByNickname(String nickname);
+    Optional<User> findByNickname(String nickname);
 }

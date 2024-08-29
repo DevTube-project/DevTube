@@ -15,7 +15,7 @@ public class Review {
     private String content;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
-    private Users users;
+    private User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lectureId")
     private Lecture lecture;

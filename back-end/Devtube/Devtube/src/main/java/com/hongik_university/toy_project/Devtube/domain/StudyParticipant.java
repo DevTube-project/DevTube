@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class StudyParticipants {
+public class StudyParticipant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long participantId;
     private Role role;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
-    private Users users;
+    private User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "groupId")
     private StudyGroup studyGroup;

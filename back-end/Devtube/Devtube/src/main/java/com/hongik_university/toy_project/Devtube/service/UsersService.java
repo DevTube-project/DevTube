@@ -1,9 +1,7 @@
 package com.hongik_university.toy_project.Devtube.service;
 
-import com.hongik_university.toy_project.Devtube.domain.BigField;
 import com.hongik_university.toy_project.Devtube.domain.Gender;
-import com.hongik_university.toy_project.Devtube.domain.SmallField;
-import com.hongik_university.toy_project.Devtube.domain.Users;
+import com.hongik_university.toy_project.Devtube.domain.User;
 import com.hongik_university.toy_project.Devtube.domain.dto.UsersJoinRequestDto;
 import com.hongik_university.toy_project.Devtube.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,13 +27,13 @@ public class UsersService {
                     throw new IllegalArgumentException(requestDto.getNickname() + "의 유저 nickname은 이미 존재합니다.");
                 }));
         //저장
-        Users users = Users.builder().userId(requestDto.getUserId())
+        User user = User.builder().userId(requestDto.getUserId())
                 .password(encoder.encode(requestDto.getPassword()))
                 .name(requestDto.getName())
                 .age(requestDto.getAge())
                 .nickname(requestDto.getNickname())
                 .gender(Gender.valueOf(requestDto.getGender().toUpperCase()))
                 .build();
-        usersRepository.save(users);
+        usersRepository.save(user);
     }
 }
