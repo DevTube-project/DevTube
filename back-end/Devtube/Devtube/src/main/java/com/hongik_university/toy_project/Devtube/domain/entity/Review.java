@@ -1,4 +1,4 @@
-package com.hongik_university.toy_project.Devtube.domain;
+package com.hongik_university.toy_project.Devtube.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

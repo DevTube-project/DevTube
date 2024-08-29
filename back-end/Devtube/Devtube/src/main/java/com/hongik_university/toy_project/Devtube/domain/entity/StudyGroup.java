@@ -1,5 +1,7 @@
-package com.hongik_university.toy_project.Devtube.domain;
+package com.hongik_university.toy_project.Devtube.domain.entity;
 
+import com.hongik_university.toy_project.Devtube.domain.enums.BigField;
+import com.hongik_university.toy_project.Devtube.domain.enums.SmallField;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

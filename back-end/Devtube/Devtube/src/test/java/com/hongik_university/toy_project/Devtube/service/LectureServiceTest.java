@@ -1,14 +1,13 @@
 package com.hongik_university.toy_project.Devtube.service;
 
-import com.hongik_university.toy_project.Devtube.domain.BigField;
-import com.hongik_university.toy_project.Devtube.domain.Lecture;
-import com.hongik_university.toy_project.Devtube.domain.SmallField;
+import com.hongik_university.toy_project.Devtube.domain.enums.BigField;
+import com.hongik_university.toy_project.Devtube.domain.entity.Lecture;
+import com.hongik_university.toy_project.Devtube.domain.enums.SmallField;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @SpringBootTest
