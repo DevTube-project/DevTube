@@ -13,6 +13,4 @@ public class UsersJoinRequestDto {
     private String nickname;
     private Integer age;
     private String gender;
-    private String bigField;
-    private String smallField;
 }

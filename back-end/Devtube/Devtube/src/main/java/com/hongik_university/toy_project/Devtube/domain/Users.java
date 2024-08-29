@@ -21,10 +21,6 @@ public class Users {
     private Integer age;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @Enumerated(EnumType.STRING)
-    private BigField bigField;
-    @Enumerated(EnumType.STRING)
-    private SmallField smallField;
     @OneToMany(mappedBy = "users")
     private List<Review> reviews = new ArrayList<>();
     @OneToMany(mappedBy = "users")
@@ -34,14 +30,12 @@ public class Users {
 
     @Builder
     public Users(String userId, String password, String name, String nickname, Integer age
-    , Gender gender, BigField bigField, SmallField smallField){
+    , Gender gender){
         this.userId = userId;
         this.password = password;
         this.name = name;
         this.nickname = nickname;
         this.age = age;
         this.gender = gender;
-        this.bigField = bigField;
-        this.smallField = smallField;
     }
 }

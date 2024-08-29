@@ -35,8 +35,6 @@ public class UsersService {
                 .age(requestDto.getAge())
                 .nickname(requestDto.getNickname())
                 .gender(Gender.valueOf(requestDto.getGender().toUpperCase()))
-                .bigField(BigField.valueOf(requestDto.getBigField().toUpperCase()))
-                .smallField(SmallField.valueOf(requestDto.getSmallField().toUpperCase()))
                 .build();
         usersRepository.save(users);
     }
