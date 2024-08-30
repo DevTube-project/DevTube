@@ -25,9 +25,9 @@ public class User {
     private String nickname;
     private int age;
     @Enumerated(EnumType.STRING)
-    private UserRole role;
-    @Enumerated(EnumType.STRING)
     private Gender gender;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
