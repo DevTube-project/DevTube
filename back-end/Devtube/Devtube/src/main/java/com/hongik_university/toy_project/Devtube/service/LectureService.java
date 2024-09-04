@@ -1,9 +1,9 @@
 package com.hongik_university.toy_project.Devtube.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hongik_university.toy_project.Devtube.domain.BigField;
-import com.hongik_university.toy_project.Devtube.domain.Lecture;
-import com.hongik_university.toy_project.Devtube.domain.SmallField;
+import com.hongik_university.toy_project.Devtube.domain.enums.BigField;
+import com.hongik_university.toy_project.Devtube.domain.entity.Lecture;
+import com.hongik_university.toy_project.Devtube.domain.enums.SmallField;
 import com.hongik_university.toy_project.Devtube.repository.LectureRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

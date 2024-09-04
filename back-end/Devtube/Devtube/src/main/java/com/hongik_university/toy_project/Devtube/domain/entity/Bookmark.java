@@ -1,4 +1,4 @@
-package com.hongik_university.toy_project.Devtube.domain;
+package com.hongik_university.toy_project.Devtube.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +13,7 @@ public class Bookmark {
     private Long bookmarkId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
-    private Users users;
+    private User user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lectureId")
     private Lecture lecture;

@@ -1,5 +1,7 @@
-package com.hongik_university.toy_project.Devtube.domain;
+package com.hongik_university.toy_project.Devtube.domain.entity;
 
+import com.hongik_university.toy_project.Devtube.domain.enums.BigField;
+import com.hongik_university.toy_project.Devtube.domain.enums.SmallField;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,7 @@ public class StudyGroup {
     private Integer capacity;
     private LocalDate date;
     @OneToMany(mappedBy = "studyGroup")
-    private List<StudyParticipants> studyParticipants = new ArrayList<>();
+    private List<StudyParticipant> studyParticipants = new ArrayList<>();
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lectureId")
     private Lecture lecture;
