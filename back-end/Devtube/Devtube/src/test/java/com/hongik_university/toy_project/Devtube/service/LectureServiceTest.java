@@ -1,8 +1,9 @@
 package com.hongik_university.toy_project.Devtube.service;
 
-import com.hongik_university.toy_project.Devtube.domain.enums.BigField;
-import com.hongik_university.toy_project.Devtube.domain.entity.Lecture;
-import com.hongik_university.toy_project.Devtube.domain.enums.SmallField;
+import com.hongik_university.toy_project.Devtube.domain.lecture.entity.BigField;
+import com.hongik_university.toy_project.Devtube.domain.lecture.entity.Lecture;
+import com.hongik_university.toy_project.Devtube.domain.lecture.entity.SmallField;
+import com.hongik_university.toy_project.Devtube.domain.lecture.service.LectureService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
