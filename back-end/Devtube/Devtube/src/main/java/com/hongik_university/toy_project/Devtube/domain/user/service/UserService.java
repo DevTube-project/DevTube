@@ -19,7 +19,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public void signUp(UserSignUpRequest userSignUpRequest) {
-        if (userRepository.findByUserId(userSignUpRequest.username()).isPresent()) {
+        if (userRepository.findByUsername(userSignUpRequest.username()).isPresent()) {
             throw new AppException(ErrorCode.USERID_DUPLICATED, userSignUpRequest.username() + "는 이미 존재하는 아이디 입니다");
         }
         if (userRepository.findByEmail(userSignUpRequest.email()).isPresent()) {
@@ -28,17 +28,9 @@ public class UserService {
         if(userRepository.findByNickname(userSignUpRequest.nickname()).isPresent()){
             throw new AppException(ErrorCode.USER_NICKNAME_DUPLICATED, userSignUpRequest.name() + "는 이미 존재하는 닉네임 입니다");
         }
-        User user = User.builder()
-                .username(userSignUpRequest.username())
-                .password(userSignUpRequest.password())
-                .email(userSignUpRequest.email())
-                .name(userSignUpRequest.name())
-                .nickname(userSignUpRequest.nickname())
-                .age(userSignUpRequest.age())
-                .gender(userSignUpRequest.gender())
-                .role(UserRole.USER)
-                .build();
+        User user = userSignUpRequest.toEntity();
         user.passwordEncode(passwordEncoder);
+        user.authorizeUser();
         userRepository.save(user);
     }
 }
