@@ -1,44 +1,34 @@
 package com.hongik_university.toy_project.Devtube.domain.lecture.entity;
 import com.hongik_university.toy_project.Devtube.domain.bookmark.entity.Bookmark;
 import com.hongik_university.toy_project.Devtube.domain.review.entity.Review;
-import com.hongik_university.toy_project.Devtube.domain.study.entity.StudyGroup;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Lecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long lectureId;
+    private Long id;
     String title;
     String url;
-    @Enumerated(EnumType.STRING)
-    BigField bigField;
-    @Enumerated(EnumType.STRING)
-    SmallField smallField;
     String channelTitle;
-    String imageUrl;
-    @OneToMany(mappedBy = "lecture")
+    @OneToMany(mappedBy = "lecture", cascade = CascadeType.REMOVE, orphanRemoval = true)
     List<Bookmark> bookmarks = new ArrayList<>();
-    @OneToMany(mappedBy = "lecture")
+    @OneToMany(mappedBy = "lecture", cascade = CascadeType.REMOVE, orphanRemoval = true)
     List<Review> reviews = new ArrayList<>();
-    @OneToMany(mappedBy = "lecture")
-    List<StudyGroup> studyGroups = new ArrayList<>();
+
     @Builder
-    public Lecture(String title,BigField bigField,SmallField smallField,String url,String channelTitle,String imageUrl){
-        this.bigField = bigField;
-        this.smallField = smallField;
+    private Lecture(String title, String url, String channelTitle) {
         this.title = title;
         this.channelTitle = channelTitle;
         this.url = url;
-        this.imageUrl = imageUrl;
     }
 
 }

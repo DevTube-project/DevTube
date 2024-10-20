@@ -1,6 +1,5 @@
 package com.hongik_university.toy_project.Devtube.domain.user.controller.dto.request;
 
-import com.hongik_university.toy_project.Devtube.domain.user.entity.Gender;
 import com.hongik_university.toy_project.Devtube.domain.user.entity.User;
 
 public record UserSignUpRequest(String username,
@@ -8,8 +7,7 @@ public record UserSignUpRequest(String username,
                             String email,
                             String name,
                             String nickname,
-                            int age,
-                            Gender gender)
+                            int age)
 {
     public  User toEntity(){
         return User.builder()
@@ -19,7 +17,6 @@ public record UserSignUpRequest(String username,
                 .name(name)
                 .nickname(nickname)
                 .age(age)
-                .gender(gender)
                 .build();
     }
 }

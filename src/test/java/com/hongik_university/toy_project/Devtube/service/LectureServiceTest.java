@@ -2,7 +2,6 @@ package com.hongik_university.toy_project.Devtube.service;
 
 import com.hongik_university.toy_project.Devtube.domain.lecture.entity.BigField;
 import com.hongik_university.toy_project.Devtube.domain.lecture.entity.Lecture;
-import com.hongik_university.toy_project.Devtube.domain.lecture.entity.SmallField;
 import com.hongik_university.toy_project.Devtube.domain.lecture.service.LectureService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

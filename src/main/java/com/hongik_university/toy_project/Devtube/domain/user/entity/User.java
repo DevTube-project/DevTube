@@ -2,9 +2,11 @@ package com.hongik_university.toy_project.Devtube.domain.user.entity;
 
 import com.hongik_university.toy_project.Devtube.domain.bookmark.entity.Bookmark;
 import com.hongik_university.toy_project.Devtube.domain.review.entity.Review;
-import com.hongik_university.toy_project.Devtube.domain.study.entity.StudyParticipant;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
@@ -25,14 +27,12 @@ public class User {
     private String nickname;
     private int age;
     @Enumerated(EnumType.STRING)
-    private Gender gender;
-    @Enumerated(EnumType.STRING)
     private UserRole role;
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
     @Builder
-    public User(
+    private User(
                 String username,
                 String password,
                 String email,
@@ -41,7 +41,6 @@ public class User {
                 int age,
                 UserRole role,
                 SocialType socialType,
-                Gender gender,
                 String socialId) {
         this.username = username;
         this.password = password;
@@ -51,7 +50,6 @@ public class User {
         this.age = age;
         this.role = role;
         this.socialType = socialType;
-        this.gender = gender;
         this.socialId = socialId;
     }
     // 로그인한 소셜 타입의 식별자 값 ( 일반 로그인인 경우 null)
@@ -60,10 +58,7 @@ public class User {
     private List<Review> reviews = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<Bookmark> bookmarks = new ArrayList<>();
-    @OneToMany(mappedBy = "user")
-    private List<StudyParticipant> participants = new ArrayList<>();
 
-    // 유저 권한 설정 메서드
     public void authorizeUser() {
         this.role = UserRole.USER;
     }
